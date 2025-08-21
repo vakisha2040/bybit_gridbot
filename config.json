@@ -34,3 +34,14 @@
   "mainBreakthroughPrice":200,
   "hedgeKillResetMultiplier": 1.11,
   "closePositionsOnStop": true,
+  "hedgeOpenRetryDelay": 5000,
+  "monitorInterval": 1000,
+  "volatilityAdjustment": false,
+  "levelBasedSpacing": false,
+  "debug": false,
+  "boundaryUpdateInterval": 5000,
+  "boundaryTolerance": 10,
+  "trailingThreshold": 310,
+    "oneWayTrailing": true,
+  "emergencyThresholdMultiplier": 0.2
+}
