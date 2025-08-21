@@ -34,3 +34,37 @@ function calculateStopLoss(entry, side, gridSpacing) {
 // New boundary calculation functions
 function calculateTrailingBoundary(currentPrice, lastBoundary, side, spacing) {
   const buffer = spacing * 0.3; // 30% buffer to prevent whipsaw
+  if (side === 'Buy') {
+    return toPrecision(Math.min(currentPrice - spacing, lastBoundary - buffer));
+  } else {
+    return toPrecision(Math.max(currentPrice + spacing, lastBoundary + buffer));
+  }
+}
+
+function shouldUpdateBoundary(currentPrice, lastBoundary, side, spacing) {
+  const minMove = spacing * 0.5; // Only move after 50% of spacing
+  if (side === 'Buy') {
+    return (currentPrice - lastBoundary) >= minMove;
+  } else {
+    return (lastBoundary - currentPrice) >= minMove;
+  }
+}
+
+function formatBoundaryMessage(side, newBoundary, priceChange) {
+  boundaryUpdateCount++;
+  if (boundaryUpdateCount % 3 !== 0) return null; // Only message every 3 updates
+  
+  return `🔄 ${side} Boundary Updated\n` +
+         `▫️ New Level: ${newBoundary}\n` +
+         `▫️ Price Change: ${toPrecision(priceChange)}`;
+}
+
+module.exports = {
+  fetchPrecision,
+  toPrecision,
+  calculateNextPrice,
+  calculateStopLoss,
+  calculateTrailingBoundary,
+  shouldUpdateBoundary,
+  formatBoundaryMessage
+};
