@@ -51,3 +51,45 @@ function setMainTrade(trade) {
   saveState();
 }
 function clearMainTrade() {
+  state.mainTrade = null;
+  saveState();
+}
+function getMainTrade() {
+  return state.mainTrade;
+}
+
+function setHedgeTrade(trade) {
+  state.hedgeTrade = trade;
+  saveState();
+}
+function clearHedgeTrade() {
+  state.hedgeTrade = null;
+  saveState();
+}
+function getHedgeTrade() {
+  return state.hedgeTrade;
+}
+
+function setCooldown(seconds) {
+  state.cooldownUntil = Date.now() + seconds * 1000;
+  saveState();
+}
+function isCooldown() {
+  return Date.now() < state.cooldownUntil;
+}
+
+module.exports = {
+  startBot,
+  stopBot,
+  isRunning,
+  setMainTrade,
+  clearMainTrade,
+  getMainTrade,
+  setHedgeTrade,
+  clearHedgeTrade,
+  getHedgeTrade,
+  setCooldown,
+  isCooldown,
+  saveState,
+  loadState,
+};
