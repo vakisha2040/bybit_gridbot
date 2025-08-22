@@ -1,4 +1,4 @@
-# Bybiy Grid Bot
+# Bybit Grid Bot
 
 A Node.js-based grid trading bot for Binnance with Telegram control panel, automatic state management, and logging.
 
