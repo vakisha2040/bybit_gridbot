@@ -17,11 +17,11 @@
   "constantTrailingDistance": 300,
   "boundaryStickyness": 300,
   "maxHedgeTrailDistance": 300, 
-  "gridSpacing": 400,
-  "zeroLevelSpacing":400,
+  "gridSpacing": 450,
+  "zeroLevelSpacing":450,
   "newBoundarySpacing": 400,
   "gridLevels": 120,
-  "gridStopLossPercent": 0.75,
+  "gridStopLossPercent": 0.78,
   "cooldownTime": 5000,
   "minHedgeBoundaryMove": 300,
   "hedgeReentryCooldown": 5000,
@@ -41,7 +41,7 @@
   "debug": false,
   "boundaryUpdateInterval": 5000,
   "boundaryTolerance": 10,
-  "trailingThreshold": 370,
+  "trailingThreshold": 350,
     "oneWayTrailing": true,
   "emergencyThresholdMultiplier": 0.2
 }
