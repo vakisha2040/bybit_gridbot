@@ -381,9 +381,9 @@ async function monitorPrice() {
       if (mainTrade) {
         await handleMainTrade(price);
           // Check kill switch only if not in manual mode
-        if (!mainTrade.manual && !hedgeToMain) {
+      //  if (!mainTrade.manual && !hedgeToMain) {
           await killMain();
-        }
+        //}
 
         // Price trailing for main trade
         if (!hedgeTrade) {
@@ -420,9 +420,9 @@ async function monitorPrice() {
         await handleHedgeTrade(price);
         
         // Check kill switch only if not in manual mode
-        if (!hedgeTrade.manual) {
+       // if (!hedgeTrade.manual) {
           await killHedge();
-        }
+       // }
       }
 
       
@@ -431,7 +431,7 @@ async function monitorPrice() {
 if (!mainTrade && !hedgeTrade) {
   // 1. Handle cooldown first
   if (inCooldown) {
-    if (now >= CooldownUntil - 5000) {
+    if (now >= mainCooldownUntil - 5000) {
       sendMessage(`⏳ Cooldown ends in ${Math.ceil((mainCooldownUntil - now)/1000)}s`);
     }
   } 
