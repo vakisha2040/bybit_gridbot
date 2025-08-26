@@ -381,9 +381,9 @@ async function monitorPrice() {
       if (mainTrade) {
         await handleMainTrade(price);
           // Check kill switch only if not in manual mode
-      //  if (!mainTrade.manual && !hedgeToMain) {
+       if (!mainTrade.manual && !hedgeToMain) {
           await killMain();
-        //}
+        }
 
         // Price trailing for main trade
         if (!hedgeTrade) {
@@ -420,9 +420,9 @@ async function monitorPrice() {
         await handleHedgeTrade(price);
         
         // Check kill switch only if not in manual mode
-       // if (!hedgeTrade.manual) {
+        if (!hedgeTrade.manual) {
           await killHedge();
-       // }
+        }
       }
 
       
